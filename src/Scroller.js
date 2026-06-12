@@ -319,7 +319,7 @@ export default class CalendarScroller extends Component {
   }
 
   rowRenderer = (type, data, i, extState) => {
-    return this.props.renderDay && this.props.renderDay({...data, ...extState});
+    return this.props.renderDay && this.props.renderDay({...data, ...this.props.renderDayParams, ...extState});
   }
 
   render() {
