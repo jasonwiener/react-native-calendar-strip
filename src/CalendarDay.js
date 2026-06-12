@@ -359,6 +359,10 @@ class CalendarDay extends Component {
   }
 
   render() {
+    if (!this.props.date) {
+      return null;
+    }
+
     // Defaults for disabled state
     const {
       date,
