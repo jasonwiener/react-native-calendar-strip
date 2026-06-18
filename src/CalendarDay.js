@@ -86,7 +86,7 @@ class CalendarDay extends Component {
       ...this.calcSizes(props)
     };
 
-    if (!props.scrollable) {
+    if (!props.scrollable && typeof props.registerAnimation === "function") {
       props.registerAnimation(this.createAnimation());
     }
   }
@@ -359,6 +359,10 @@ class CalendarDay extends Component {
   }
 
   render() {
+    if (!this.props.date) {
+      return null;
+    }
+
     // Defaults for disabled state
     const {
       date,
